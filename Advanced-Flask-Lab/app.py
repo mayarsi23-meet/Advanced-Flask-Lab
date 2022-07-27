@@ -4,8 +4,8 @@ import requests, json
 
 app = Flask(  # Create a flask app
     __name__,
-    template_folder='templates',  # Name of html file folder
-    static_folder='static'  # Name of directory for static files
+    template_folder='templates',  
+    static_folder='static'
 )
 
 # Variables for tasks
@@ -19,13 +19,9 @@ posts = {
     "https://pbs.twimg.com/media/FPvsO6xVkAEcrBm?format=jpg&name=900x900": "#Throwback to one of our favorite #MEETsummer events: #BowlingNight!",
     "https://pbs.twimg.com/media/FI_UkcnVIAAUvWN?format=jpg&name=medium": "2020 cohort in their Y1 summer!"}
 
-
-#####
-
-
 @app.route('/')  # '/' for the default page
 def home():
-    return render_template('index.html')
+    return render_template('index.html', image_link = image_link, user_bio = user_bio, posts = posts)
 
 
 @app.route('/about')  # '/' for the default page
